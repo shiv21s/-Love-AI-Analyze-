@@ -1,0 +1,679 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Shiv : Love AI Report ❤️</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Segoe UI;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(
+          45deg,
+          #ff69b4,
+          #da70d6,
+          #9370db,
+          #ff1493,
+          #ff69b4,
+          #da70d6
+        );
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+      }
+
+      .stars {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+      }
+
+      .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 1.5s infinite;
+        box-shadow: 0 0 5px #fff;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      .shooting-star {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: white;
+        border-radius: 50%;
+        animation: shoot 3s linear infinite;
+        opacity: 0;
+        box-shadow:
+          0 0 10px #fff,
+          0 0 20px #fff;
+      }
+
+      @keyframes shoot {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(200%) translateY(200%) rotate(45deg);
+          opacity: 0;
+        }
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        /* background:linear-gradient(135deg,#190021,#60003f); */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 20px;
+        overflow-x: hidden;
+      }
+
+      .app {
+        max-width: 900px;
+        width: 100%;
+        background: #ffffff20;
+        backdrop-filter: blur(15px);
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 0 0 40px #ff008ca2;
+      }
+
+      h1 {
+        text-align: center;
+        color: #fcfbfb;
+        font-weight: bold;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        background: #ffffff15;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      input,
+      select {
+        background-color: #f4b6f2;
+        color: rgb(0, 0, 0);
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 0;
+        border-radius: 10px;
+      }
+
+      input {
+        font-weight: 00;
+        color: rgb(10, 10, 10);
+      }
+
+      input::placeholder {
+        color: black;
+      }
+
+      button {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        padding: 14px;
+        margin-top: 15px;
+        border: 0;
+        border-radius: 30px;
+        background: linear-gradient(90deg, #ff008c, #ff5ca8);
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+      }
+
+      .result {
+        display: none;
+        text-align: center;
+        margin-top: 25px;
+      }
+
+      .score {
+        font-size: 60px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .progress {
+        height: 18px;
+        background: black;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .fill {
+        height: 100%;
+        width: 0;
+        background: #ffd700;
+        transition: 2s;
+      }
+
+      /* Certificate */
+
+      .certificate {
+        margin-top: 20px;
+        padding: 30px;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #ff65ad, #ffb6dc);
+        color: White;
+        font-weight: bold;
+        box-shadow: 0 0 30px #ff1493;
+      }
+
+      .certificate h2 {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        font-size: 32px;
+      }
+      #certScore {
+        color: white;
+      }
+
+      .heart {
+        position: fixed;
+        bottom: -20px;
+        font-size: 25px;
+        animation: up 5s linear;
+      }
+
+      .shiv {
+        margin-top: 25px;
+        
+
+        text-align: center;
+        font-size: 15px;
+        align-items: center;
+        color: #000;
+
+       
+
+        justify-content: center;
+
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      @keyframes up {
+        to {
+          transform: translateY(-110vh);
+        }
+      }
+
+      .spark {
+        position: fixed;
+        height: 8px;
+        width: 8px;
+        background: #ffd700;
+        border-radius: 50%;
+        animation: spark 2s linear;
+      }
+
+      @keyframes spark {
+        to {
+          transform: translateY(-300px);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .certificate h2 {
+          color: white;
+          font-weight: bold;
+          font-size: 20px;
+        }
+        #date {
+          font-weight: 400;
+        }
+
+        .app h1 {
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+
+        .shiv {
+        margin-top: 20px;
+        
+
+        text-align: center;
+        font-size: 12px;
+        align-items: center;
+        color: #000;
+
+       
+
+        justify-content: center;
+
+        font-family: "Courier New", Courier, monospace;
+      }
+
+        
+      }
+
+      .floating-social {
+        position: fixed;
+        right: 200px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 9999;
+      }
+
+      .floating-social a {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        background: rgba(116, 44, 107, 0.226);
+        border: 1px solid #87349295;
+        backdrop-filter: blur(10px);
+        /* box-shadow:0 0 15px #00d9ff; */
+        transition: 0.3s;
+      }
+
+      .floating-social a:hover {
+        transform: scale(1.15);
+        background: #eca7c9aa;
+        color: #00111a;
+      }
+
+      .floating-social i {
+        font-size: 17px;
+        font-style: normal;
+      }
+
+      /* Mobile */
+      @media (max-width: 1200px) {
+        .floating-social {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <h1>💖 Love AI Analyzer 💖</h1>
+       
+
+      <div class="grid">
+        <div class="card">
+          <h3>👦 You</h3>
+
+          <input id="n1" placeholder="Name" />
+
+          <input id="a1" type="number" placeholder="Age" />
+
+          <select id="c1">
+            <option>Colour</option>
+            <option>Red</option>
+            <option>Pink</option>
+            <option>Blue</option>
+            <option>Black</option>
+            <option>White</option>
+            <option>Purple</option>
+            <option>Green</option>
+            <option>Brown</option>
+            <option>NavyBlue</option>
+            <option>Gray</option>
+          </select>
+
+          <select id="f1">
+            <option>Food</option>
+            <option>Pizza</option>
+            <option>Biryani</option>
+            <option>Chocolate</option>
+            <option>Ice Cream</option>
+            <option>Momo</option>
+            <option>Burger</option>
+            <option>Sandwich</option>
+            <option>Chaumin</option>
+            <option>Samosa</option>
+          </select>
+
+          <select id="h1">
+            <option>Hobby</option>
+            <option>Music</option>
+            <option>Gaming</option>
+            <option>Travel</option>
+            <option>Dance</option>
+            <option>Photography</option>
+            <option>Gardening</option>
+            <option>Reading Book</option>
+            <option>Coding</option>
+          </select>
+        </div>
+
+        <div class="card">
+          <h3>👧 Your Love</h3>
+
+          <input id="n2" placeholder="Your Love Name" />
+
+          <input id="a2" type="number" placeholder="Age" />
+
+          <select id="c2">
+            <option>Colour</option>
+            <option>Red</option>
+            <option>Pink</option>
+            <option>Blue</option>
+            <option>Black</option>
+            <option>White</option>
+            <option>Purple</option>
+            <option>Green</option>
+            <option>Brown</option>
+            <option>NavyBlue</option>
+            <option>Gray</option>
+          </select>
+
+          <select id="f2">
+            <option>Food</option>
+            <option>Pizza</option>
+            <option>Biryani</option>
+            <option>Chocolate</option>
+            <option>Ice Cream</option>
+            <option>Momo</option>
+            <option>Burger</option>
+            <option>Sandwich</option>
+            <option>Chaumin</option>
+            <option>Samosa</option>
+          </select>
+
+          <select id="h2">
+            <option>Hobby</option>
+            <option>Music</option>
+            <option>Gaming</option>
+            <option>Travel</option>
+            <option>Dance</option>
+            <option>Photography</option>
+            <option>Gardening</option>
+            <option>Reading Book</option>
+            <option>Coding</option>
+          </select>
+        </div>
+      </div>
+
+      <button onclick="testLove()">💖 Calculate Love</button>
+
+
+      <div class="result" id="result">
+        <div class="score" id="score"></div>
+
+        <div class="progress">
+          <div class="fill" id="fill"></div>
+        </div>
+
+        <p id="msg"></p>
+
+        <div class="certificate" id="certificate">
+          <h2>💖 LOVE REPORT 💖</h2>
+
+          <h3 id="couple"></h3>
+
+          <h1 id="certScore"></h1>
+
+          <p id="quote"></p>
+
+          <p id="date"></p>
+        </div>
+
+        <button onclick="downloadCert()">📥 Download Certificate</button>
+
+        <button onclick="shareCert()">📤 Share Certificate</button>
+
+       
+      </div>
+      <div class="shiv">Developed by Shiv</div>
+    </div>
+
+    <div class="stars"></div>
+
+    <div class="floating-social">
+      <a href="https://linkedin.com" target="_blank">
+        <i>in</i>
+      </a>
+
+      <a href="https://github.com" target="_blank">
+        <i>◉</i>
+      </a>
+
+      <a href="https://youtube.com" target="_blank">
+        <i>▶</i>
+      </a>
+
+      <a href="https://instagram.com" target="_blank">
+        <i>◎</i>
+      </a>
+
+      <a href="https://twitter.com" target="_blank">
+        <i>𝕏</i>
+      </a>
+    </div>
+
+    <script>
+      // Create stars
+      const starsContainer = document.querySelector(".stars");
+      for (let i = 0; i < 150; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        starsContainer.appendChild(star);
+      }
+
+      // Create shooting stars periodically
+      setInterval(() => {
+        const shootingStar = document.createElement("div");
+        shootingStar.className = "shooting-star";
+        shootingStar.style.left = `${Math.random() * 100}%`;
+        shootingStar.style.top = `${Math.random() * 100}%`;
+        starsContainer.appendChild(shootingStar);
+
+        setTimeout(() => {
+          shootingStar.remove();
+        }, 3000);
+      }, 2000);
+
+      let timer = null;
+
+      function startEffect() {
+        if (timer) return;
+
+        timer = setInterval(() => {
+          let h = document.createElement("div");
+          h.className = "heart";
+          h.innerHTML = "❤️";
+          h.style.left = Math.random() * 100 + "%";
+          document.body.appendChild(h);
+
+          let s = document.createElement("div");
+          s.className = "spark";
+          s.style.left = Math.random() * 100 + "%";
+          s.style.bottom = "20px";
+          document.body.appendChild(s);
+
+          setTimeout(() => {
+            h.remove();
+            s.remove();
+          }, 4000);
+        }, 300);
+      }
+
+      function stopEffect() {
+        clearInterval(timer);
+        timer = null;
+
+        document.querySelectorAll(".heart,.spark").forEach((e) => e.remove());
+      }
+
+      function testLove() {
+        let name1 = n1.value;
+        let name2 = n2.value;
+
+        if (!name1 || !name2) {
+          alert("Enter names ❤️");
+          return;
+        }
+
+        let d = new Date();
+
+        let score = 0;
+
+        for (let x of name1 + name2) {
+          score += x.charCodeAt(0);
+        }
+
+        if (c1.value == c2.value) score += 20;
+        if (f1.value == f2.value) score += 20;
+        if (h1.value == h2.value) score += 20;
+
+        score += 100 - Math.abs(a1.value - a2.value) * 5;
+
+        score = score % 101;
+
+        if (score < 20) score = 45;
+
+        if ((score + d.getMinutes()) % 11 == 0) score = 100;
+
+        result.style.display = "block";
+
+        document.getElementById("score").innerHTML = score + "%";
+
+        setTimeout(() => {
+          fill.style.width = score + "%";
+        }, 200);
+
+        couple.innerHTML = name1 + " 💗 " + name2;
+
+        certScore.innerHTML = score + "% Compatibility";
+
+        date.innerHTML = "Issued by Shiv 📅 " + d.toLocaleDateString();
+
+        if (score >= 65) {
+          startEffect();
+
+          if (score >= 90) {
+            quote.innerHTML =
+              "💍 Soulmate Connection<br>Always protect this beautiful bond ❤️";
+          } else {
+            quote.innerHTML =
+              "💕 Strong Love Bond<br>Create more memories together 🌹";
+          }
+
+          msg.innerHTML =
+            "❤️ Amazing Connection!<br>Keep trust, respect and support each other.";
+        } else {
+          stopEffect();
+
+          quote.innerHTML = "🌱 Love grows with effort";
+
+          msg.innerHTML = `
+💙 Suggestions:<br><br>
+❤️ Talk openly with each other<br>
+🤝 Understand feelings<br>
+🎁 Give small surprises<br>
+⏳ Spend quality time together<br>
+🌹 Respect each other's dreams
+`;
+        }
+      }
+
+      async function getImage() {
+        return await html2canvas(document.getElementById("certificate"), {
+          scale: 3,
+        });
+      }
+
+      async function downloadCert() {
+        let canvas = await getImage();
+
+        let a = document.createElement("a");
+
+        a.download = "Love-Certificate.png";
+
+        a.href = canvas.toDataURL();
+
+        a.click();
+      }
+
+      async function shareCert() {
+        let canvas = await getImage();
+
+        canvas.toBlob(async (blob) => {
+          let file = new File([blob], "Love-Certificate.png", {
+            type: "image/png",
+          });
+
+          if (navigator.share) {
+            await navigator.share({
+              title: "Love Certificate ❤️",
+              text: "Our Love Report ❤️",
+              files: [file],
+            });
+          } else {
+            downloadCert();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
